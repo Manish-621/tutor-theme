@@ -1,0 +1,94 @@
+## mako
+<%page expression_filter="h"/>
+<%!
+  from django.urls import reverse
+  from django.utils.translation import ugettext as _
+  from lms.djangoapps.branding.api import get_footer
+  from openedx.core.djangoapps.lang_pref.api import footer_language_selector_is_enabled
+%>
+<% footer = get_footer(is_secure=is_secure) %>
+<% icp_license_info = getattr(settings, 'ICP_LICENSE_INFO', {})%>
+<%namespace name='static' file='static_content.html'/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<footer class="p-xl-5" style="background-color: #344054;">
+    <div class="px-xl-5">
+        <div class="row justify-content-between">
+            <div class="col-md-6 col-sm-6 col-xs-12 d-flex flex-column w-25">
+                <img class="w-75" src="/static/assests/vector/footer_logo.png">
+                <div class="font-weight-bold text-white mx-3 my-0" style="font-size: medium;">We got what you need</div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12 w-25 d-flex justify-content-end">
+                <img class="w-50" src="/static/assests/vector/gplay.svg">
+            </div>
+        </div>
+        <div class="row">
+            <div class="my-5 d-flex flex-row mx-3 gap-3">
+                <img src="/static/assests/vector/fb.svg">
+                <img src="/static/assests/vector/Instagram.svg">
+                <img src="/static/assests/vector/twitter.svg">
+                <img src="/static/assests/vector/linkedin.svg">
+                <img src="/static/assests/vector/Youtube.svg">
+            </div>
+        </div>
+        <hr class="text-white fw-bold mx-3">
+        <div class="row text-white px-xl-5 my-5">
+            <div class="col-xl-3">
+                <p class="fs-6 mb-0 fw-semibold text-uppercase">SkillAssure</p>
+                <ul class="fs-6 nav flex-column">
+                    <li class="nav-item">About</li>
+                    <li class="nav-item">Careers</li>
+                    <li class="nav-item">Success Stories</li>
+                    <li class="nav-item">For Business</li>
+                </ul>
+            </div>
+            <div class="col-xl-3">
+                <p class="fs-6 mb-0 fw-semibold text-uppercase">Resources</p>
+                <ul class="fs-6 nav flex-column">
+                    <li class="nav-item">About</li>
+                    <li class="nav-item">Careers</li>
+                    <li class="nav-item">Success Stories</li>
+                    <li class="nav-item">For Business</li>
+                </ul>
+            </div>
+            <div class="col-xl-3">
+                <p class="fs-6 mb-0 fw-semibold text-uppercase">Support</p>
+                <ul class="fs-6 nav flex-column">
+                    <li class="nav-item">About</li>
+                    <li class="nav-item">Careers</li>
+                    <li class="nav-item">Success Stories</li>
+                    <li class="nav-item">For Business</li>
+                </ul>
+            </div>
+            <div class="col-xl-3">
+                <p class="fs-6 mb-0 fw-semibold text-uppercase">Partner with us</p>
+                <ul class="fs-6 nav flex-column">
+                    <li class="nav-item">About</li>
+                    <li class="nav-item">Careers</li>
+                    <li class="nav-item">Success Stories</li>
+                    <li class="nav-item">For Business</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="text-white fw-bold mx-3">
+        <div class="row text-white px-xl-5 my-5">
+            <div class="col-12 gap-2">
+                <p class="fw-semibold">Trending Bootcamp Programs</p>
+                <p class="fs-6">Coding Bootcamp | Data Science Bootcamp | Data Analytics Bootcamp | UI/UX Design Bootcamp </p>
+            </div>
+        </div>
+        <div class="row text-white px-xl-5 my-5">
+            <div class="col-12 gap-2 flex-wrap">
+                <p class="fw-semibold">Trending Courses</p>
+                <p class="fs-6">Data Science with Python Course |  Java Certification Course | Python Certification Training Course | Angular Certification Course | React JS Certification Course | Django Certification Course </p>
+            </div>
+        </div>
+        <div class="row text-white px-xl-5 my-5">
+            <div class="col-12 gap-2">
+                <p class="fw-semibold">Trending Resources</p>
+                <p class="fs-6">Python Tutorial | JavaScript Tutorial | Java Tutorial | Angular Tutorial | Node.js Tutorial | Git Tutorial | React JS Tutorial | React Native Tutorial | CSS Tutorial </p>
+            </div>
+        </div>
+
+
+    </div>
+</footer>
