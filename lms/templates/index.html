@@ -1,0 +1,282 @@
+<%page expression_filter="h"/>
+<%inherit file="main.html" />
+<%namespace name='static' file='static_content.html'/>
+<%!
+from django.utils.translation import gettext as _
+from django.urls import reverse
+
+from openedx.core.djangolib.markup import HTML, Text
+%>
+
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<!--<link rel="stylesheet" type="text" href="${static.url('css/style.css')}"> -->
+</head>
+
+<!--<section class="banner">
+<div class="d-flex flex-column align-items-center mx-0" style="background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 25%, rgba(247, 247, 247, 0) 50%, rgba(101, 112, 132, 0) 65.65%, rgba(89, 89, 89, 0.04) 100%);
+            background-blend-mode: multiply; font-family:'Inter';">
+                <div id="carouselExampleSlidesOnly" class="row carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="${static.url('images/banner1.png')}" class="d-block w-125" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="${static.url('images/banner2.png')}" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="${static.url('images/banner3.png')}" class="d-block w-100" alt="...">
+                    </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="row header-txt py-3">
+                    <div class="d-flex flex-wrap flex-column align-items-center">
+                        <h3 class="my-2 font-weight-bold">WE GOT WHAT</h3>
+                        <h3 class="font-weight-bold">YOU NEED!</h3>
+                        <p class="my-2">A Discovery Program with Talent Accelerator, Startup Incubator,</p>
+                        <p>grab your chance to be with us in your entrepreneurship track.</p>
+                        <a type="submit" href="/register${login_query()}"><button class="btn mt-3 mb-3" style="background: linear-gradient(98.94deg, #014384 -10.01%, #0192D9 107.52%); box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03); border-radius: 5px; height: 70px; width: 220px;"><p class="text-white text-center m-0">Get Started</p></button></a>
+                        <p class="head-sub-txt mt-3">Over 40% of Students across India and 300+ companies use SkillAssure.</p>
+                    </div>
+                </div>
+</div>
+</section>-->
+<div class="content" style="width: inherit; font-family: 'Inter';">
+    <div class="cont-headtxt w-25 mx-auto my-5" style="min-width:75%">
+        <h2 class="text-center text-justify text-wrap">We Measure Candidate's Skills, Competency and Ability</h2> 
+    </div>
+    <div class="grid mx-5">
+        <div class="row justify-content-center py-2">
+            <div class="card col-sm-12 col-xl-3 p-3 m-xl-5 m-2 shadow">
+                <img class="card-img w-25 h-25 pb-2 float-left" src="${static.url('images/card-vector.svg')}">
+                <div class="card-txt px-3 mt-2">
+                    <p class="card-headtxt">Aptitude</p>
+                    <p class="card-subtxt">Aptitude found in the understanding and is often inherited. Genius coming from reason and imagination, rarely.</p>
+                </div>
+            </div>
+            <div class="card col-sm-12 col-xl-3 p-3 m-xl-5 m-2 shadow">
+                <img class="card-img w-25 h-25 pb-2 float-left" src="${static.url('images/card-vector2.svg')}">
+                <div class="card-txt px-3 mt-2">
+                    <p class="card-headtxt">Self Assessment</p>
+                    <p class="card-subtxt">Predict the future with AI,Ml</p>
+                </div>
+            </div>
+            <div class="card col-sm-12 col-xl-3 p-3 m-xl-5 m-2 shadow">
+                <img class="card-img w-25 h-25 pb-2 float-left" src="${static.url('images/card-vector3.svg')}">
+                <div class="card-txt px-3 mt-2">
+                    <p class="card-headtxt">Certified</p>
+                    <p class="card-subtxt">Certified from assureRite</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center py-2">
+            <div class="card col-sm-12 col-xl-3 p-3 m-xl-5 m-2 shadow">
+                <img class="card-img w-25 h-25 pb-2 float-left" src="${static.url('images/card-vector4.svg')}">
+                <div class="card-txt px-3 mt-2">
+                    <p class="card-headtxt">Programming</p>
+                    <p class="card-subtxt">Mentors are people who encourage and support you. They guide you and help you to make a wise decision usually regarding your career. Mentor cheer you up and boost your social and academic confidence.</p>
+                </div>
+            </div>
+            <div class="card col-sm-12 col-xl-3 p-3 m-xl-5 m-2 shadow">
+                <img class="card-img w-25 h-25 pb-2 float-left" src="${static.url('images/card-vector5.svg')}">
+                <div class="card-txt px-3 mt-2">
+                    <p class="card-headtxt">Code Analysis</p>
+                    <p class="card-subtxt">Any code of your own that you haven’t looked at for six or more months might as well have been written by someone else.</p>
+                </div>
+            </div>
+            <div class="card col-sm-12 col-xl-3 p-3 m-xl-5 m-2 shadow">
+                <img class="card-img w-25 h-25 pb-2 float-left" src="${static.url('images/card-vector6.svg')}">
+                <div class="card-txt px-3 mt-2">
+                    <p class="card-headtxt">Target</p>
+                    <p class="card-subtxt">The archer who misses his mark does not blame the target. He stops, corrects himself and shoots again.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center py-2">
+            <div class="card col-sm-12 col-xl-3 p-3 m-xl-5 m-2 shadow">
+                <img class="card-img w-25 h-25 pb-2 float-left" src="${static.url('images/card-vector7.svg')}">
+                <div class="card-txt px-3 mt-2">
+                    <p class="card-headtxt">Code Jam</p>
+                        <p class="card-subtxt">Success is the only one option to improve  gradually.</p>
+                </div>
+            </div>
+            <div class="card col-sm-12 col-xl-3 p-3 m-xl-5 m-2 shadow">
+                <img class="card-img w-25 h-25 pb-2 float-left" src="${static.url('images/card-vector8.svg')}">
+                <div class="card-txt px-3 mt-2">
+                    <p class="card-headtxt">Personal Growth</p>
+                        <p class="card-subtxt">Foundation of emotional, physical, intellectual and Spiritualhealth.</p>
+                </div>
+            </div>
+            <div class="card col-sm-12 col-xl-3 p-3 m-xl-5 m-2 shadow">
+                <img class="card-img w-25 h-25 pb-2 float-left" src="${static.url('images/card-vector8.svg')}">
+                <div class="card-txt px-3 mt-2">
+                    <p class="card-headtxt">Personal Growth</p>
+                    <p class="card-subtxt">Foundation of emotional, physical, intellectual and Spiritualhealth.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cont-subtxt w-25 mx-auto my-5" style="min-width:75%">
+        <h2 class="text-center text-justify text-wrap">How does it work?</h2> 
+    </div>
+    <div class="cont-img d-flex justify-content-center mx-3">
+        <img style="max-width: 100%;" src="${static.url('images/flowchart.svg')}">
+    </div>
+    <div class="cont-subtxt w-25 mx-auto mt-5" style="min-width:75%">
+        <h2 class="text-center text-justify text-wrap">Our Experience</h2> 
+    </div>
+    <div class="row justify-content-center py-2 mx-5 mt-2">
+        <div class="card col-sm-12 col-xl-3 p-3 m-2 shadow text-center justify-content-center" style="min-height: 200px;">
+            <div class="card-txt">
+                <h1>50K</h1>
+                <p>Software Engineers Trained</p>
+            </div>
+        </div>
+        <div class="card col-sm-12 col-xl-3 p-3 m-2 shadow text-center justify-content-center" style="min-height: 200px;">
+            <div class="card-txt">
+                <h1>20K</h1>
+                <p>Fresh Hires Trained</p>
+            </div>    
+        </div>
+        <div class="card col-sm-12 col-xl-3 p-3 m-2 shadow text-center justify-content-center" style="min-height: 200px;">
+            <div class="card-txt">
+                <h1>300K</h1>
+                <p>Assessed</p>
+            </div>
+        </div>
+    </div>
+    <div class="cont-subtxt w-25 mx-auto mt-5" style="min-width:75%">
+        <h2 class="text-center text-justify text-wrap">Our Alumini</h2> 
+    </div>
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+                 <div class="row justify-content-center py-2 mx-5 mt-2">
+                    <div class="card col-sm-12 col-xl-2 py-3 px-1 m-2 shadow text-center justify-content-center" style="min-height: 200px;">
+                        <img class="card-img h-50 w-50 pb-2 align-self-center" src="${static.url('images/card-vector6.svg')}">
+                        <div class="card-txt">
+                            <p>Zeo Zilva</p>
+                            <p>Microsoft</p>
+                        </div>
+                    </div>
+                    <div class="card col-sm-12 col-xl-2 py-3 px-1 m-2 shadow text-center justify-content-center" style="min-height: 200px;">
+                        <img class="card-img h-50 w-50 pb-2 align-self-center" src="${static.url('images/card-vector6.svg')}">
+                        <div class="card-txt">
+                            <p>Zeo Zilva</p>
+                            <p>Microsoft</p>
+                        </div>
+                    </div>
+                    <div class="card col-sm-12 col-xl-2 py-3 px-1 m-2 shadow text-center justify-content-center" style="min-height: 200px;">
+                        <img class="card-img h-50 w-50 pb-2 align-self-center" src="${static.url('images/card-vector6.svg')}">
+                        <div class="card-txt">
+                            <p>Zeo Zilva</p>
+                            <p>Microsoft</p>
+                        </div>
+                    </div>
+                    <div class="card col-sm-12 col-xl-2 py-3 px-1 m-2 shadow text-center justify-content-center" style="min-height: 200px;">
+                        <img class="card-img h-50 w-50 pb-2 align-self-center" src="${static.url('images/card-vector6.svg')}">
+                        <div class="card-txt">
+                            <p>Zeo Zilva</p>
+                            <p>Microsoft</p>
+                        </div>
+                    </div>
+                    <div class="card col-sm-12 col-xl-2 py-3 px-1 m-2 shadow text-center justify-content-center" style="min-height: 200px;">
+                        <img class="card-img h-50 w-50 pb-2 align-self-center" src="${static.url('images/card-vector6.svg')}">
+                        <div class="card-txt">
+                            <p>Zeo Zilva</p>
+                            <p>Microsoft</p>
+                        </div>
+                    </div>
+                </div>
+          </div>
+          <div class="carousel-item">
+                <div class="row justify-content-center py-2 mx-5 mt-2">
+                    <div class="card col-sm-12 col-xl-2 py-3 px-1 m-2 shadow text-center justify-content-center" style="min-height: 200px;">
+                        <img class="card-img h-50 w-50 pb-2 align-self-center" src="${static.url('images/card-vector6.svg')}">
+                        <div class="card-txt">
+                            <p>Zeo Zilva</p>
+                            <p>Microsoft</p>
+                        </div>
+                    </div>
+                    <div class="card col-sm-12 col-xl-2 py-3 px-1 m-2 shadow text-center justify-content-center" style="min-height: 200px;">
+                        <img class="card-img h-50 w-50 pb-2 align-self-center" src="${static.url('images/card-vector6.svg')}">
+                        <div class="card-txt">
+                            <p>Zeo Zilva</p>
+                            <p>Microsoft</p>
+                        </div>
+                    </div>
+                    <div class="card col-sm-12 col-xl-2 py-3 px-1 m-2 shadow text-center justify-content-center" style="min-height: 200px;">
+                        <img class="card-img h-50 w-50 pb-2 align-self-center" src="${static.url('images/card-vector6.svg')}">
+                        <div class="card-txt">
+                            <p>Zeo Zilva</p>
+                            <p>Microsoft</p>
+                        </div>
+                    </div>
+                    <div class="card col-sm-12 col-xl-2 py-3 px-1 m-2 shadow text-center justify-content-center" style="min-height: 200px;">
+                        <img class="card-img h-50 w-50 pb-2 align-self-center" src="${static.url('images/card-vector6.svg')}">
+                        <div class="card-txt">
+                            <p>Zeo Zilva</p>
+                            <p>Microsoft</p>
+                        </div>
+                    </div>
+                    <div class="card col-sm-12 col-xl-2 py-3 px-1 m-2 shadow text-center justify-content-center" style="min-height: 200px;">
+                        <img class="card-img h-50 w-50 pb-2 align-self-center" src="${static.url('images/card-vector6.svg')}">
+                        <div class="card-txt">
+                            <p>Zeo Zilva</p>
+                            <p>Microsoft</p>
+                        </div>
+                    </div>
+                </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon bg-secondary" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon bg-secondary" aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="cont-subtxt w-25 mx-auto mt-5" style="min-width:75%">
+        <h2 class="text-center text-justify text-wrap">Our Clients</h2> 
+    </div>
+    <div class="cont-img d-flex justify-content-center m-3">
+        <img style="max-width: 100%;" src="${static.url('images/clients.jpg')}">
+    </div>
+</div>
+
+ 
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+% if show_homepage_promo_video:
+  <section id="video-modal" class="modal home-page-video-modal video-modal">
+    <div class="inner-wrapper">
+      <iframe title="YouTube Video" width="640" height="360" src="//www.youtube.com/embed/${homepage_promo_video_youtube_id}?showinfo=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+% endif
+
+<%block name="js_extra">
+   <script type="text/javascript">
+      $(window).load(function() {
+         if(getParameterByName('next')) {
+              $('#login').trigger("click");
+         }
+      })
+   </script>
+</%block>
+
+% if show_signup_immediately is not UNDEFINED:
+  ## NOTE: This won't work in production, because anonymous views are cached, so it will
+  ## show either with or without this extra js for 3 minutes at a time.
+<script type="text/javascript">
+  $(window).load(function() {$('#signup_action').trigger("click");});
+</script>
+% endif
