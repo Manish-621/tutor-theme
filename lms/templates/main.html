@@ -18,7 +18,7 @@ import six
 from lms.djangoapps.branding import api as branding_api
 from django.urls import reverse
 from django.utils.http import urlquote_plus
-from django.utils.translation import gettext as _
+from django.utils.translation import ugettext as _
 from django.utils.translation import get_language_bidi
 from lms.djangoapps.courseware.access import has_access
 from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
@@ -34,8 +34,7 @@ from common.djangoapps.pipeline_mako import render_require_js_path_overrides
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'> 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
 
 ## Define a couple of helper functions to make life easier when
 ## embedding theme conditionals into templates. All inheriting
@@ -115,8 +114,7 @@ from common.djangoapps.pipeline_mako import render_require_js_path_overrides
 
   % if uses_bootstrap:
     ## xss-lint: disable=mako-invalid-js-filter
-   <script type="text/javascript" src="${static.url('common/js/vendor/bootstrap.bundle.js')}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>-
+    <script type="text/javascript" src="${static.url('common/js/vendor/bootstrap.bundle.js')}"></script>
   % endif
 
   <script>
@@ -173,14 +171,9 @@ from common.djangoapps.pipeline_mako import render_require_js_path_overrides
     </script>
 % endif
 
-  % if course and course is not UNDEFINED and render_course_wide_assets:
-  % for css in course.course_wide_css:
-    <link rel="stylesheet" href="${css}" type="text/css">
-  % endfor
-  % endif
 </head>
 
-<body class="${static.dir_rtl()} <%block name='bodyclass'/> lang_${LANGUAGE_CODE}">
+<body class="font-sans ${static.dir_rtl()} <%block name='bodyclass'/> lang_${LANGUAGE_CODE}">
 
 <%static:optional_include_mako file="body-initial.html" is_theming_enabled="True" />
 <div id="page-prompt"></div>
@@ -199,8 +192,8 @@ from common.djangoapps.pipeline_mako import render_require_js_path_overrides
 
     <div class="marketing-hero"><%block name="marketing_hero"></%block></div>
 
-    <div class="content-wrapper main-container" id="content" dir="${static.dir_rtl()}">
-      ${next.body()}
+    <div class="" id="content" dir="${static.dir_rtl()}">
+      ${self.body()}
       <%block name="bodyextra"/>
     </div>
 
@@ -221,13 +214,6 @@ from common.djangoapps.pipeline_mako import render_require_js_path_overrides
   <script type="text/javascript" src="${static.url('js/header/header.js')}"></script>
   <%static:optional_include_mako file="body-extra.html" is_theming_enabled="True" />
   <script type="text/javascript" src="${static.url('js/src/jquery_extend_patch.js')}"></script>
-  <div id="lean_overlay"></div>
-
-  % if course and course is not UNDEFINED and render_course_wide_assets:
-  % for js in course.course_wide_js:
-  <script type="text/javascript" src="${js}"></script>
-  % endfor
-  % endif
 </body>
 </html>
 
