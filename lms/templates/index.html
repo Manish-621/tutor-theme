@@ -17,13 +17,13 @@ from openedx.core.djangolib.markup import HTML, Text
         <div id="carouselExampleSlidesOnly" class="row carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
             <div class="carousel-item active">
-            <img src="/static/assests/vector/banner1.png" class="d-block w-125" alt="...">
+            <img src="${static.url('images/banner1.png')}" class="d-block w-125" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="/static/assests/vector/banner2.png" class="d-block w-100" alt="...">
+                <img src="${static.url('images/banner2.png')}" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="/static/assests/vector/banner3.png" class="d-block w-100" alt="...">
+                <img src="${static.url('images/banner3.png')}" class="d-block w-100" alt="...">
             </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -244,7 +244,7 @@ from openedx.core.djangolib.markup import HTML, Text
     <div class="cont-subtxt w-25 mx-auto mt-5" style="min-width:75%">
         <h2 class="text-center text-justify text-wrap">Our Clients</h2> 
     </div>
-    <div class="cont-img d-flex justify-content-center m-3">
+    <div class="cont-img d-flex justify-content-center m-5">
         <img style="max-width: 100%;" src="${static.url('images/clients.jpg')}">
     </div>
 </div>
