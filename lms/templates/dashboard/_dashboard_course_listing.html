@@ -57,8 +57,7 @@ from lms.djangoapps.experiments.utils import UPSELL_TRACKING_FLAG
 %>
 
 <%namespace name='static' file='../static_content.html'/>
-<div class="row">
-<li class="course-item col-xl-5" style="background-image: url("${course_overview.image_urls['small']}");">
+<li class="course-item col-xl-3 col-md-5 col-sm-8" style="background-image: url("${course_overview.image_urls['small']}");">
   % if display_course_modes_on_dashboard:
     <%
         course_verified_certs = enrollment_mode_display(
@@ -409,7 +408,6 @@ from lms.djangoapps.experiments.utils import UPSELL_TRACKING_FLAG
 </article>
 </div>
 </li>
-</div>
 
 % if share_settings.get('DASHBOARD_FACEBOOK', False) and share_settings.get('DASHBOARD_TWITTER', False):
     <%static:require_module_async module_name="js/course_sharing/course_sharing_events" class_name="CourseSharingEvents">
