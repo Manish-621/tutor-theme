@@ -57,7 +57,8 @@ from lms.djangoapps.experiments.utils import UPSELL_TRACKING_FLAG
 %>
 
 <%namespace name='static' file='../static_content.html'/>
-<li class="course-item col-xl-3 col-md-5 col-sm-8 p-5 h-25 flex-wrap" style="background-image: url("${course_overview.image_urls['small']}");">
+<li class="col-xl-3 col-md-5 col-sm-8">
+ <div class="card d-flex flex-column gap-3 py-4 px-3">
   % if display_course_modes_on_dashboard:
     <%
         course_verified_certs = enrollment_mode_display(
@@ -73,17 +74,12 @@ from lms.djangoapps.experiments.utils import UPSELL_TRACKING_FLAG
   % else:
     <% mode_class = '' %>
   % endif
-      <div class="course-container"
         % if getattr(course_overview, 'language'):
           lang="${course_overview.language}"
         % endif
-      >
-<article class="course${mode_class}" aria-labelledby="course-title-${enrollment.course_id}" id="course-card-${course_card_index}">
+
   <% course_target = course_home_url(course_overview.id) %>
-  <section class="details" aria-labelledby="details-heading-${enrollment.course_id}">
-      <h2 class="hd hd-2 sr" id="details-heading-${enrollment.course_id}">${_('Course details')}</h2>
-      <div class="wrapper-course-details">
-        <h3 class="course-title" id="course-title-${enrollment.course_id}">
+        <div class="fw-bold fs-4 text-black">
           % if show_courseware_link and not is_unfulfilled_entitlement:
             % if not is_course_expired:
               <a data-course-key="${enrollment.course_id}" href="${course_target}" class="course-target-link">${course_overview.display_name_with_default}</a>
@@ -93,7 +89,7 @@ from lms.djangoapps.experiments.utils import UPSELL_TRACKING_FLAG
           % else:
             <span>${course_overview.display_name_with_default}</span>
           % endif
-        </h3>
+        </div>
         <div class="wrapper-course-info-actions">
           <div class="wrapper-course-info-row">
             <div class="course-info">
