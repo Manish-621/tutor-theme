@@ -228,7 +228,7 @@ from common.djangoapps.student.models import CourseEnrollment
             % endfor
             % if not show_load_all_courses_link:
             <div class="col-xl-3 col-md-3 col-sm-8">
-              <div class="card d-flex flex-column gap-0 py-4 px-3 text-white" style="background-image: url('{$static.url('images/card-bg2.png')}'); background-position: bottom;">
+              <div class="card d-flex flex-column gap-0 py-4 px-3 text-white" style="background-image: url('${static.url('images/card-bg2.png')}'); background-position: bottom;">
                   <div class="d-flex flex-column gap-0 ">
                       <p class="fw-bold fs-6 m-0">Stand out from the crowd</p>
                       <p class="fs-6 m-0">Take the SkillAssure Skills Certification Test and make your profile stand out</p>
@@ -239,7 +239,7 @@ from common.djangoapps.student.models import CourseEnrollment
                    </div>      
                   </div>
               </div>
-          </div>
+            </div>
             % endif
             </ul>
           % else:
