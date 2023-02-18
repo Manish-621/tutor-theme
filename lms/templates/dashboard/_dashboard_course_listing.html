@@ -58,7 +58,7 @@ from lms.djangoapps.experiments.utils import UPSELL_TRACKING_FLAG
 
 <%namespace name='static' file='../static_content.html'/>
 
-<li class="course-item col-xl-3 col-md-3" style="display: inline;">
+<li class="course-item col-xl-3 col-md-3 p-3" style="display: inline;">
   % if display_course_modes_on_dashboard:
     <%
         course_verified_certs = enrollment_mode_display(
