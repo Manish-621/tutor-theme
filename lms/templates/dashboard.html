@@ -148,6 +148,16 @@ from common.djangoapps.student.models import CourseEnrollment
 <main id="main" aria-label="Content" tabindex="-1">
     <div class="dashboard" id="dashboard-main">
       <div class="main-container">
+        <div>
+          <div class="row my-3">
+              <p class="col-xl-3 fs-5" style="font-family: 'Inter';">My Programmes</p>
+          </div>
+          <div class="row d-flex flex-nowrap justify-content-around align-content-center px-3 gap-5 mx-5">
+              <div class="card align-text-center">
+                  <p>No Programmes Enrolled</p>
+              </div>
+          </div>
+        </div>
         <div class="my-courses" id="my-courses">
           % if display_dashboard_courses:
           <%include file="learner_dashboard/_dashboard_navigation_courses.html"/>
